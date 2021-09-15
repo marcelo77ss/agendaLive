@@ -1,7 +1,7 @@
 <mat-tab-group style="padding-top: 40PX; padding-left: 2%; padding-right: 2%;">
     <mat-tab label="PRÓXIMAS">
      <div fxLayout="row wrap" f1q xLayoutAlign="start center" style="padding: 2%;" >
-      <ng-container *ngFor="let live of livesPrevious" style="margin: 0.5%;">
+      <ng-container *ngFor="let live of livesNext" style="margin: 0.5%;">
           
         <mat-card class="mat-card-live" fxFlex="0 1 calc(33.3% - 11px)"        
           fxFlex.lt-md="0 1 calc(50% - 11px)"
@@ -12,9 +12,11 @@
                   <p>
                       <span style="font-size: 0.9rem;" fxFlex="70" fxLayoutAlgin="start center">{{live.liveName}}</span>
                       <span fxFlex></span>
-                      <span style="font-size: 0.7rem;" fxFlex="25" fxLayoutAlgin="end center">{{live.liveDate}}</span>
+                      <mat-chip class="mat-chip-date" fxFlex="25" fxLayoutAlign="center center">
+                        <span style="font-size: 0.7rem;">{{live.liveDate | localDataTime}}</span>
+                      </mat-chip>
                   </p>
-                  <p style="font-size: 00.7rem;">
+                  <p style="font-size:  0.7rem;">
                       Canal:  <span>{{live.channelName}}</span>
                   </p>
                 </div>
@@ -42,9 +44,11 @@
                   <p>
                       <span style="font-size: 0.9rem;" fxFlex="70" fxLayoutAlgin="start center">{{live.liveName}}</span>
                       <span fxFlex></span>
-                      <span style="font-size: 0.7rem;" fxFlex="25" fxLayoutAlgin="end center">{{live.liveDate}}</span>
+                      <mat-chip class="mat-chip-date" fxFlex="25" fxLayoutAlign="center center">
+                      <span style="font-size: 0.7rem;">{{live.liveDate | localDataTime}}</span>
+                    </mat-chip> 
                   </p>
-                  <p style="font-size: 00.7rem;">
+                  <p style="font-size: 0.7rem;">
                       Canal:  <span>{{live.channelName}}</span>
                   </p>
                 </div>

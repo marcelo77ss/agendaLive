@@ -13,12 +13,18 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatCardModule} from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { LocalDataTimePipe } from './shared/pipe/local-data-time.pipe';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatDialogModule} from '@angular/material/dialog';
+import { LiveFormDialogComponent } from './views/home/live-form-dialog/live-form-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    LiveListComponent
+    LiveListComponent,
+    LocalDataTimePipe,
+    LiveFormDialogComponent
   ],
   imports: [
     HttpClientModule,
@@ -30,9 +36,13 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatButtonModule,
     MatTabsModule,
     MatCardModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatChipsModule,
+    MatDialogModule
   ],
-  providers: [],
+  providers: [
+    LocalDataTimePipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
