@@ -12,6 +12,8 @@ export class LiveListComponent implements OnInit {
 
     livesPrevious!: Live[];
     livesNext!: Live[];
+    next: boolean = false;
+    previous: boolean = false;
 
   constructor(
     public liveService: LiveService,
@@ -23,20 +25,22 @@ export class LiveListComponent implements OnInit {
   }
 
   getLives(){
-    this.liveService.getLivesWithFlag('previous').subscribe(data =>{
+    this.liveService.getLivesWithFlag('previous').subscribe(data => {
       this.livesPrevious = data.content;
       console.log(this.livesPrevious);
       this.livesPrevious.forEach(live => {
         live.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(live.liveLink);
       });
+      this.previous = true;
     });
 
-    this.liveService.getLivesWithFlag('next').subscribe(data =>{
+    this.liveService.getLivesWithFlag('next').subscribe(data => {
       this.livesNext = data.content;
       console.log(this.livesNext);
       this.livesNext.forEach(live => {
         live.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(live.liveLink);
       });
+      this.next = true;
     });
   }
 }
